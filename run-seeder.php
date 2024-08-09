@@ -117,6 +117,17 @@ $dataTemplate = [
 
 // Seed the data into the database
 collect($dataCategoryType)->each(function ($item) {
-    CategoryType::create($item);
+    try {
+        CategoryType::create($item);
+    } catch (\Exception $e) {
+        echo "Error inserting CategoryType: " . $e->getMessage();
+    }
 });
-collect($dataTemplate)->each(function ($template) { Template::create($template); });
+
+collect($dataTemplate)->each(function ($template) {
+    try {
+        Template::create($template);
+    } catch (\Exception $e) {
+        echo "Error inserting Template: " . $e->getMessage();
+    }
+});
