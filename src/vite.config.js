@@ -20,5 +20,6 @@ export default defineConfig({
           // Alias 'vue' to use the full build (runtime + compiler)
           vue: 'vue/dist/vue.esm-bundler.js'
         }
-      }
+      },
+    chunkSizeWarningLimit: 2048000
 });
