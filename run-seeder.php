@@ -1,17 +1,18 @@
 <?php
 
-use PHPCorp\LaravelCms\Models\CategoryType;
-use PHPCorp\LaravelCms\Models\Template;
+use App\Models\CMS\CategoryType;
+use App\Models\CMS\Template;
 
 
-// Include Composer's autoloader
-require __DIR__ . '/vendor/autoload.php';
 
-// Bootstrap Laravel framework
-$app = require_once __DIR__ . '/bootstrap/app.php';
+// // Include Composer's autoloader
+// require __DIR__ . '/vendor/autoload.php';
 
-// Ensure we use the Laravel ORM (Eloquent)
-$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+// // Bootstrap Laravel framework
+// $app = require_once __DIR__ . '/bootstrap/app.php';
+
+// // Ensure we use the Laravel ORM (Eloquent)
+// $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
 // Your data to seed
 $dataCategoryType = [
