@@ -13,6 +13,7 @@ use App\Http\Controllers\CMS\API\Category\ClassificationController;
 use App\Http\Controllers\CMS\API\Category\FormController;
 use App\Http\Controllers\CMS\API\Category\GlobalController;
 use App\Http\Controllers\CMS\API\TemplateController;
+use App\Models\CMS\Category;
 use App\Models\CMS\Page;
 // Import Below Here
 
