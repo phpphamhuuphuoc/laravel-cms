@@ -23,7 +23,7 @@ class SetupPackage extends Command
         \Artisan::call('migrate');
 
         $this->info('Running seeder...');
-        exec(base_path('vendor/phpcorp/laravel-cms/run-seeder.php'));
+        exec(base_path('php vendor/phpcorp/laravel-cms/run-seeder.php'));
 
         $this->info('Installing npm packages...');
         exec('npm install');
