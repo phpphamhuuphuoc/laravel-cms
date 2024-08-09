@@ -15,7 +15,7 @@ class LaravelCmsServiceProvider extends ServiceProvider
     {
         // Register any package services here
         $this->commands([
-            SetupPackage::class,
+            \PHPCorp\LaravelCms\Console\Commands\SetupCommand::class,
         ]);
     }
 
