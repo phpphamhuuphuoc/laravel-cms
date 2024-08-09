@@ -10,6 +10,7 @@ class CategoryType extends Model
 {
     use HasFactory;
     protected $table = 'cms_category_types';
+    protected $guarded = [];
     
     public function categories(): HasMany
     {
