@@ -37,6 +37,9 @@ class LaravelCmsServiceProvider extends ServiceProvider
             'helpers' => [
                 __DIR__.'/Helpers/CMS' => base_path('app/Helpers/CMS'),
             ],
+            'providers' => [
+                __DIR__.'/Providers' => base_path('app/Providers'),
+            ],
             'controllers_cms' => [
                 __DIR__.'/Http/Controllers/CMS' => app_path('Http/Controllers/CMS'),
             ],
