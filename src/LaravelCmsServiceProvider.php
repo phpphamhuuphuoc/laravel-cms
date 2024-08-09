@@ -28,9 +28,9 @@ class LaravelCmsServiceProvider extends ServiceProvider
             'migrations' => [
                 __DIR__.'/database/migrations/CMS' => database_path('migrations/CMS'),
             ],
-            'seeders' => [
-                __DIR__.'/database/seeders/CMS' => database_path('seeders/CMS'),
-            ],
+            // 'seeders' => [
+            //     __DIR__.'/database/seeders/CMS' => database_path('seeders/CMS'),
+            // ],
             'helpers' => [
                 __DIR__.'/Helpers/CMS' => base_path('app/Helpers/CMS'),
             ],
@@ -96,5 +96,20 @@ class LaravelCmsServiceProvider extends ServiceProvider
     
         // Load migrations
         $this->loadMigrationsFrom(__DIR__.'/database/migrations/CMS');
+
+        // Load helpers
+        $this->loadHelpers();
+    }
+    protected function loadHelpers()
+    {
+        // Đảm bảo rằng các file helper đã được publish vào thư mục dự án
+        $helperPath = base_path('app/Helpers/CMS');
+
+        // Lặp qua tất cả các file trong thư mục Helpers
+        foreach (glob($helperPath . '/*.php') as $file) {
+            if (file_exists($file)) {
+                require_once $file;
+            }
+        }
     }
 }

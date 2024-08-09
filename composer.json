@@ -19,5 +19,15 @@
             ]
         }
     },
-    "license": "MIT"
+    "license": "MIT",
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --tag=laravel-cms-all --force",
+            "@php artisan migrate",
+            "php run-seeder.php",
+            "npm install",
+            "npm update",
+            "npm install vite --save-dev"
+        ]
+    }
 }
