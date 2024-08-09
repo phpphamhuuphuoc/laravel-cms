@@ -1,18 +1,28 @@
 <?php
 
-use App\Models\CMS\CategoryType;
-use App\Models\CMS\Template;
-
-
-
-// Include Composer's autoloader
-require __DIR__ . '/vendor/autoload.php';
+// Include Composer's autoloader from the project root
+require __DIR__ . '../../../../vendor/autoload.php';
 
 // Bootstrap Laravel framework
-$app = require_once __DIR__ . '/bootstrap/app.php';
+$app = require_once __DIR__ . '../../../../bootstrap/app.php';
 
 // Ensure we use the Laravel ORM (Eloquent)
 $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+use App\Models\CMS\CategoryType;
+use App\Models\CMS\Template;
+use Illuminate\Support\Collection;
+
+
+
+// // Include Composer's autoloader
+// require __DIR__ . '/vendor/autoload.php';
+
+// // Bootstrap Laravel framework
+// $app = require_once __DIR__ . '/bootstrap/app.php';
+
+// // Ensure we use the Laravel ORM (Eloquent)
+// $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
 // Your data to seed
 $dataCategoryType = [
@@ -115,10 +125,9 @@ $dataTemplate = [
 
 ];
 
-// Seed the data into the database
 collect($dataCategoryType)->each(function ($item) {
     try {
-        CategoryType::create($item);
+        CategoryType::updateOrCreate(['id' => $item['id']], $item);
     } catch (\Exception $e) {
         echo "Error inserting CategoryType: " . $e->getMessage();
     }
@@ -126,7 +135,7 @@ collect($dataCategoryType)->each(function ($item) {
 
 collect($dataTemplate)->each(function ($template) {
     try {
-        Template::create($template);
+        Template::updateOrCreate(['id' => $template['id']], $template);
     } catch (\Exception $e) {
         echo "Error inserting Template: " . $e->getMessage();
     }
