@@ -14,6 +14,9 @@ class LaravelCmsServiceProvider extends ServiceProvider
     public function register()
     {
         // Register any package services here
+        $this->commands([
+            SetupPackage::class,
+        ]);
     }
 
     /**

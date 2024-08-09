@@ -119,5 +119,3 @@ collect($dataCategoryType)->each(function ($item) {
     CategoryType::create($item);
 });
 collect($dataTemplate)->each(function ($template) { Template::create($template); });
-
-echo "Seeding completed successfully.\n";
