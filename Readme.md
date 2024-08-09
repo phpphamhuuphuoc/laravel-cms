@@ -8,20 +8,11 @@ composer require phpcorp/laravel-cms
 # Setup the Laravel CMS package
 ## Run command
 php artisan cms:setup
-## Định nghĩa các file Helpers vào file composer.json (object composer.json['autoload'])
-"files": [
-    "app/Helpers/CMS/Dispatch.php",
-    "app/Helpers/CMS/File.php",
-    "app/Helpers/CMS/Path.php",
-    "app/Helpers/CMS/String.php"
-]
-## Thêm các câu lệnh vào app\Providers\AppServiceProvider.php function boot()
-use App\Models\CMS\Page;
-use Illuminate\Support\Facades\View;
-$this->loadRoutesFrom(base_path('routes/web_cms.php'));
-View::share('globalData', [
-    'menu' => Page::where('parent_id', NULL)->with('childrens')->orderBy('order')->get(),
-]);
+## Build assets
+npm run build
+npm run dev
+## Đăng ký CMS Service Provider ở thư mục bootstrap/app.php
+App\Providers\CMSServiceProvider::class,
 ## Comment route '/' in routes\web.php
 // Route::get('/', function () {
 //     return view('welcome');
