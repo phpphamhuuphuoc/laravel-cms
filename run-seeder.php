@@ -5,14 +5,14 @@ use App\Models\CMS\Template;
 
 
 
-// // Include Composer's autoloader
-// require __DIR__ . '/vendor/autoload.php';
+// Include Composer's autoloader
+require __DIR__ . '/vendor/autoload.php';
 
-// // Bootstrap Laravel framework
-// $app = require_once __DIR__ . '/bootstrap/app.php';
+// Bootstrap Laravel framework
+$app = require_once __DIR__ . '/bootstrap/app.php';
 
-// // Ensure we use the Laravel ORM (Eloquent)
-// $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+// Ensure we use the Laravel ORM (Eloquent)
+$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
 // Your data to seed
 $dataCategoryType = [
