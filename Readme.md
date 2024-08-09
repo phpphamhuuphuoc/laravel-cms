@@ -17,9 +17,6 @@ php artisan cms:setup
 ]
 ## Cập nhật autoload files
 composer dump-autoload
-## Migrate Database and Seeder
-php artisan migrate
-php artisan db:seed
 ## Thêm các câu lệnh vào app\Providers\AppServiceProvider.php function boot()
 use App\Models\CMS\Page;
 use Illuminate\Support\Facades\View;
