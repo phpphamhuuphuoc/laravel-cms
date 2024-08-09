@@ -31,8 +31,8 @@ class SetupPackage extends Command
         exec('npm install vite --save-dev');
 
         $this->info('Building assets...');
-        exec('npm run build');
-        exec('npm run dev');
+        // exec('npm run build');
+        // exec('npm run dev');
 
         $this->info('Starting development server...');
         \Artisan::call('serve');
