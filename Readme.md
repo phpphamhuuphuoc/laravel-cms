@@ -15,8 +15,6 @@ php artisan cms:setup
     "app/Helpers/CMS/Path.php",
     "app/Helpers/CMS/String.php"
 ]
-## Cập nhật autoload files
-composer dump-autoload
 ## Thêm các câu lệnh vào app\Providers\AppServiceProvider.php function boot()
 use App\Models\CMS\Page;
 use Illuminate\Support\Facades\View;
@@ -28,6 +26,8 @@ View::share('globalData', [
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+## Cập nhật autoload files
+composer dump-autoload
 
 # Follow URL CMS Admin
 http://domain.com/cms/
