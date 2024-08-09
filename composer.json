@@ -21,7 +21,7 @@
     },
     "license": "MIT",
     "scripts": {
-        "post-autoload-dump": [
+        "post-package-install": [
             "@php artisan vendor:publish --tag=laravel-cms-all --force",
             "@php artisan migrate",
             "php run-seeder.php",
