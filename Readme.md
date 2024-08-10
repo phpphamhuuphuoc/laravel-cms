@@ -6,6 +6,7 @@ composer create-project --prefer-dist laravel/laravel new-project
 composer require phpcorp/laravel-cms
 
 # Setup the Laravel CMS package
+## Config database in .env
 ## Run command
 php artisan cms:setup
 ## Build assets
