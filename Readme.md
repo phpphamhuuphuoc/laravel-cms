@@ -20,6 +20,9 @@ App\Providers\CMSServiceProvider::class,
 ## Cập nhật autoload files
 composer dump-autoload
 
+## Starting Serve
+php artisan serve
+
 # Follow URL CMS Admin
 http://domain.com/cms/
 http://127.0.0.1:8000/cms
