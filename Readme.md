@@ -17,7 +17,6 @@ DB_PASSWORD=your_password
 APP_URL=http://127.0.0.1:8000
 
 # Setup the Laravel CMS package
-## Config database in .env
 ## Run command
 php artisan cms:setup
 ## Build assets
