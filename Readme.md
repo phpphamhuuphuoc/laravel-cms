@@ -14,7 +14,8 @@ DB_USERNAME=your_username
 DB_PASSWORD=your_password
 
 # Setup APP_URL local
-APP_URL=http://127.0.0.1:8000
+APP_URL=http://localhost:8000
+FRONTEND_URL=http://127.0.0.1:8000
 
 # Setup the Laravel CMS package
 ## Run command
