@@ -5,6 +5,8 @@ composer create-project --prefer-dist laravel/laravel new-project
 # Install package
 composer require phpcorp/laravel-cms
 
+# Setup database local in .env file
+
 # Setup the Laravel CMS package
 ## Config database in .env
 ## Run command
