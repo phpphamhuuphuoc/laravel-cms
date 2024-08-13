@@ -90,3 +90,23 @@ Route::get('/cms/{any?}', function () {
     return view('cms.layout');
 })->where('any', '.*');
 
+
+
+
+use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\NewPasswordController;
+
+
+
+// Đăng ký người dùng
+Route::post('/register', [RegisteredUserController::class, 'store']);
+// Đăng nhập người dùng
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+// Gửi liên kết đặt lại mật khẩu
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
+// Đặt lại mật khẩu
+Route::post('/reset-password', [NewPasswordController::class, 'store']);
+// Logout người dùng (cần xác thực Sanctum)
+Route::middleware('auth:sanctum')->post('/logout', [AuthenticatedSessionController::class, 'destroy']);
