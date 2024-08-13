@@ -84,6 +84,15 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="http://127.0.0.1:8000/laravel-filemanager?type=image" class="side-menu">
+                            <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                            <div class="side-menu__title">Images</div>
+                        </a>
+                        <ul class="side-menu__sub-open">
+                            
+                        </ul>
+                    </li>
+                    <li>
                         <router-link :to="{ name: `cms.module.index` }" class="side-menu">
                                 <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                                 <div class="side-menu__title"> Module </div>
