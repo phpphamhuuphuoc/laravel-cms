@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CMS\Init\InitBase;
 use App\Models\CMS\Module;
 use App\Models\CMS\Page;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
     protected $page;
+    protected $categoryHandle;
     protected $defaultForm;
     protected $extraForm;
     public function __construct(Page $page)
@@ -23,6 +24,8 @@ class FormController extends Controller
             'content' => 'content',
         ];
         $this->extraForm = getExtraFormFrontend($page);
+        $this->categoryHandle = getCategoryHandle($page);
+        // dd($this->categoryHandle);
     }
     public function index()
     {
@@ -45,26 +48,25 @@ class FormController extends Controller
             $item['value'] = $request->get($item['name']);
             $data['data'][$key] = $item;
         }
-    
-        // Tăng giới hạn thời gian thực thi của PHP
-        set_time_limit(120); // 120 giây
-    
-        // URL để gửi yêu cầu HTTP
-        $url = url('cms/api/item/contact');
-        // $url = route('contact.api');
-    
-        try {
-            // Gửi yêu cầu HTTP với thời gian chờ 60 giây
-            $response = Http::timeout(60)->post($url, $data);
-            // Kiểm tra xem yêu cầu có thất bại không
-            if ($response->failed()) {
-                Log::error('Request failed: ' . $response->body());
-                return redirect()->back()->with('error', 'Đã có lỗi xảy ra');
+
+        $item_class = $this->categoryHandle->item_class;
+        $data = "App\Models$item_class"::create($data);
+        if ($data) {
+            $item_class_mail = "App\Mail\CMS\\" . InitBase::mail($this->categoryHandle->title);
+            try {
+                // Tạo một đối tượng của lớp Contact
+                $mailInstance = new $item_class_mail($request->all());
+                
+                // Gửi email ngay lập tức
+                Mail::to($request->get('email'))->send($mailInstance);
+            
+                // Redirect về trang trước đó với session success nếu gửi email thành công
+                return redirect()->back()->with('success', 'Email đã được gửi thành công.');
+            
+            } catch (\Exception $e) {
+                // Xử lý lỗi nếu gửi email không thành công
+                return redirect()->back()->with('error', 'Có lỗi xảy ra khi gửi email. Vui lòng thử lại.');
             }
-            return redirect()->back()->with('success', 'Data created and email sent successfully.');
-        } catch (\Exception $e) {
-            Log::error('Request error: ' . $e->getMessage());
-            return redirect()->back()->with('success', 'Data created and email sent successfully.');
         }
     }
 }
