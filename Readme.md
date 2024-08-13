@@ -6,6 +6,15 @@ composer create-project --prefer-dist laravel/laravel new-project
 composer require phpcorp/laravel-cms
 
 # Setup database local in .env file
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+# Setup APP_URL local
+APP_URL=http://127.0.0.1:8000
 
 # Setup the Laravel CMS package
 ## Config database in .env

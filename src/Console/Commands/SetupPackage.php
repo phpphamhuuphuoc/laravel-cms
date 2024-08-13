@@ -25,6 +25,11 @@ class SetupPackage extends Command
         $this->info('Running seeder...');
         exec('php vendor/phpcorp/laravel-cms/run-seeder.php');
 
+        $this->info('Running config 3th library...');
+        \Artisan::call('vendor:publish --tag=lfm_config');
+        \Artisan::call('vendor:publish --tag=lfm_public');
+        \Artisan::call('storage:link');
+
         $this->info('Installing npm packages...');
         exec('npm install');
         exec('npm update');
