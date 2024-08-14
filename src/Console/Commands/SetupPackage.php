@@ -17,9 +17,9 @@ class SetupPackage extends Command
     public function handle()
     {
 
-        $this->info('Install Breeze API & Sanctum...');
-        \Artisan::call('breeze:install api');
-        \Artisan::call('vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"');
+        // $this->info('Install Breeze API & Sanctum...');
+        // \Artisan::call('breeze:install api');
+        // \Artisan::call('vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"');
 
         $this->info('Publishing vendor assets...');
         \Artisan::call('vendor:publish', ['--tag' => 'laravel-cms-all', '--force' => true]);
