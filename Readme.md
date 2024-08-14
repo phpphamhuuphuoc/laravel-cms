@@ -13,7 +13,17 @@ DB_DATABASE=your_database
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
 
-# Setup APP_URL local
+# Setup email in .env file
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=phuocpham352@gmail.com
+MAIL_PASSWORD="wcow gwvy vurl jdsr"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=phuocpham352@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+# Setup APP_URL local in .env file
 APP_URL=http://localhost:8000
 
 # Setup the Laravel CMS package
